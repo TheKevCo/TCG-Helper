@@ -1,17 +1,71 @@
 {% include "header.html" %}
+
 <div class="jumbotron text-center">
   <h1 class="display-4">Documentation</h1>
-  <p class="lead">Single Meta Deck Choice & Cards Associated.</p>
   <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#singleDeck" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Run
-    </a>
+      <button type="button" class="btn btn-link"><a href="#DL-Area">Deck List</a></button>
+      <button type="button" class="btn btn-link"><a href="#R-Button">Return Single Random Deck</a></button>
+      <button type="button" class="btn btn-link"><a href="#All-Button">Return All Decks</a></button>
+      <button type="button" class="btn btn-link"><a href="#form-area">Search</a></button>
   </p>
-  <div class="collapse" id="singleDeck">
-      <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div>
-  </div>
+  <br>
+  <p id="DL-Area" class="lead">A List of Current Standard Meta Decks. (Click Lugia to Run)</p>
+  <h5>http://127.0.0.1:5000/v1/decklist</h5>
+  <br>
+  <button class="btn">
+    <a href="{{url_for('deck_list')}}" role="Deck-button">
+        <img src="https://64.media.tumblr.com/1b1d974a40a8f40f73982f1fefa9c790/tumblr_nu2f8xD7lF1scncwdo2_400.gif"
+             alt="Lugia-Gif"
+             width="116"
+             length="98">
+    </a>
+  </button>
   <hr class="my-4">
+  <br>
+  <p class="lead">Returns Random Single Deck. (Click Ho-oh to Run)</p>
+  <h5>http://127.0.0.1:5000/v1/random</h5>
+  <br>
+  <button class="btn">
+    <a id="R-Button" href="{{url_for('random_deck')}}" role="Random-button">
+        <img src="https://64.media.tumblr.com/116ef234eb0be05889dc3fd8c967a924/tumblr_nu2f8xD7lF1scncwdo1_400.gif"
+             alt="Ho-oh-Gif"
+             width="116"
+             length="98">
+    </a>
+  </button>
+  <hr class="my-4">
+  <br>
+  <p class="lead">Returns All Decks. (Click Suicune to Run)</p>
+  <h5>http://127.0.0.1:5000/v1/all</h5>
+  <br>
+  <button class="btn">
+    <a id="All-Button" href="{{url_for('all_decks')}}" role="All-button">
+      <img src="https://64.media.tumblr.com/0cec6fe669c868695e2960b10e768208/tumblr_p52isfAaQa1wlo03io2_400.gif"
+           alt="Suicune-Gif"
+           width="116"
+           length="98">
+    </a>
+  </button>
+  <hr class="my-4">
+  <br>
+  <p class="lead">Search a Deck. (Click Milktank to Run)</p>
+  <h5>http://127.0.0.1:5000/v1/search?query=(your_input_here)</h5>
+  <br>
+  <form id="form-area" action="{{ url_for('documentation')}}" method="POST">
+    <fieldset>
+        <h5>For all intents and purposes, you may use the search or query similarly to the link above.</h5>
+        <h5>Using the search below utilizes POST request on the documentation page.</h5>
+        <br>
+        <input id=searchdata name=searchtext class="input-medium" type="text" placeholder="Type Deck Name. I.E: Lugia" />
+        <div>
+            <button type="submit" class="btn">
+                <img src="http://pa1.narvii.com/6496/4d605ac166c9939d6c1c30c7d867bf8db427178d_00.gif"
+                  alt="Milktank-Gif"
+                  width="116"
+                  length="98">
+            </button>
+        </div>
+    </fieldset>
+  </form>
 </div>
 {% include "footer.html" %}
