@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
 from datetime import datetime
 from bs4 import BeautifulSoup
